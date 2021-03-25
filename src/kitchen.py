@@ -64,7 +64,7 @@ if __name__ == '__main__':
 
     #initialize kitchen object
     kitchen = Kitchen()
-
+    time.sleep(30)
     #open all drawers
     for i in range(10):
         drawer_id = i+1
