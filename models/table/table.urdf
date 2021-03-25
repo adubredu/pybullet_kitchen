@@ -1,0 +1,151 @@
+<?xml version="0.0" ?>
+<robot name="table.urdf">
+  <link name="baseLink">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <mass value=".0"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.86"/>
+      <geometry>
+				<mesh filename="table.obj" scale="1.5 1 0.05"/>
+      </geometry>
+       <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.86"/>
+      <geometry>
+	 	<box size="1.5 1 0.05"/>
+      </geometry>
+    </collision>
+	<visual>
+      <origin rpy="0 0 0" xyz="-0.65 -0.4 0.4"/>
+      <geometry>
+	    <mesh filename="table.obj" scale="0.1 0.1 0.9"/>
+      </geometry>
+	  <material name="framemat0"/>	 
+    </visual>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.65 0.4 0.4"/>
+      <geometry>
+        <mesh filename="table.obj" scale="0.1 0.1 0.9"/>
+      </geometry>
+	  <material name="framemat0"/>
+	  </visual>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.65 -0.4 0.4"/>
+      <geometry>
+        <mesh filename="table.obj" scale="0.1 0.1 0.9"/>
+      </geometry>
+	  <material name="framemat0"/>
+	  </visual>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.65 0.4 0.4"/>
+      <geometry>
+        <mesh filename="table.obj" scale="0.1 0.1 0.9"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="guard">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <mass value=".0"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.86"/>
+      <geometry>
+        <box size="1.5 0.025 0.125"/>
+      </geometry>
+       <material name="white">
+        <color rgba="0 0 0 0.2"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.86"/>
+      <geometry>
+    <box size="1.5 0.025 0.125"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="guard_to_surface" type="fixed">
+    <origin xyz="0 0.5 0.0625" rpy="0 0 0"/>
+    <parent link="baseLink"/>
+    <child link="guard"/>
+  </joint>
+
+  <link name="left_guard">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <mass value=".0"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.86"/>
+      <geometry>
+        <box size="0.025 1 0.125"/>
+      </geometry>
+       <material name="white">
+        <color rgba="0 0 0 0.2"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.86"/>
+      <geometry>
+    <box size="0.025 1 0.125"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_guard_to_surface" type="fixed">
+    <origin xyz="-0.75 0 0.0625" rpy="0 0 0"/>
+    <parent link="baseLink"/>
+    <child link="left_guard"/>
+  </joint>
+
+  <link name="right_guard">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <mass value=".0"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.86"/>
+      <geometry>
+        <box size="0.025 1 0.125"/>
+      </geometry>
+       <material name="white">
+        <color rgba="0 0 0 0.2"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.86"/>
+      <geometry>
+    <box size="0.025 1 0.125"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_guard_to_surface" type="fixed">
+    <origin xyz="0.75 0 0.0625" rpy="0 0 0"/>
+    <parent link="baseLink"/>
+    <child link="right_guard"/>
+  </joint>
+</robot> 
